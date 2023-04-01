@@ -9,11 +9,31 @@ public class ThreadPoolExecuterImpl {
     Queue<Runnable> queue;
     WorkerThread[] workers;
 
+    public static void main(String[] args){
+
+        ThreadPoolExecuterImpl threadPoolExecuter= new ThreadPoolExecuterImpl(4);
+        for(int i=0;i<100;i++){
+            final  int integ=i;
+            threadPoolExecuter.submit(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("task "+ integ+" is running");
+                    for(int j=0;j<100000;j++){
+
+                    }
+                }
+            });
+        }
+    }
     ThreadPoolExecuterImpl(int maxThreads){
         this.maxThreads=maxThreads;
         queue =new LinkedList<>();
         workers= new WorkerThread[maxThreads];
+        for(int i=0;i<maxThreads;i++){
+            workers[i]=new WorkerThread("Thread "+i);
+        }
         for(WorkerThread workerThread:workers){
+
             workerThread.start();
         }
     }
@@ -21,11 +41,11 @@ public class ThreadPoolExecuterImpl {
 
         synchronized (queue){
             queue.add(task);
-            queue.notifyAll();
+            queue.notify();
         }
 
     }
-    class WorkerThread extends  Thread{
+    private class WorkerThread extends  Thread{
         String name;
         WorkerThread(String name){
             this.name=name;
@@ -41,13 +61,14 @@ public class ThreadPoolExecuterImpl {
                          } catch (InterruptedException e) {
                              throw new RuntimeException(e);
                          }
-                     }else{
-                         task = queue.poll();
                      }
+                     task = queue.poll();
+
 
                  }
                  task.run();
              }
+
         }
     }
 

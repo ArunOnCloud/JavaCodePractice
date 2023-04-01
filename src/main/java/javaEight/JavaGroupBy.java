@@ -24,6 +24,8 @@ public class JavaGroupBy {
 			    .collect(Collectors.groupingBy(p -> p.age, Collectors.mapping((Person p) -> p.name, Collectors.toList())));
 		System.out.println(peopleByAge1);
 
+		System.out.println(list.stream().map((a)->a.age).collect(Collectors.toList()));
+
 	}
 	static class Person {
 	    private String name;

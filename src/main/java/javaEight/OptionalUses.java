@@ -1,6 +1,7 @@
 package javaEight;
 
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 public class OptionalUses {
@@ -12,7 +13,10 @@ public class OptionalUses {
 		
       //Optional.ofNullable - allows passed parameter to be null.
       Optional<Integer> a = Optional.ofNullable(value1);
-		
+      a.isPresent();
+      //a.g
+      BigDecimal price=null;
+      price.compareTo(new BigDecimal(0));
       //Optional.of - throws NullPointerException if passed parameter is null
       Optional<Integer> b = Optional.of(value2);
       System.out.println(java8Tester.sum(a,b));

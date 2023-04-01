@@ -30,7 +30,13 @@ public class Javastream {
         
         int sum2=list.stream().filter(i-> true).mapToInt((i)->i).sum();
         System.out.println(sum1);
-        
+
+		System.out.println(List.of(12,23,12,912,3).stream().filter((a)-> a%2 == 0).collect(Collectors.toList()));
+
+		list.stream().count();
+		if(list.stream() == null){
+
+		}
         
 	}
 

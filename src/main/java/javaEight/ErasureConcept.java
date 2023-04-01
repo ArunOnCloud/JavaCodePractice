@@ -15,6 +15,12 @@ public class ErasureConcept {
     	  String s=al.get(i);
     	  System.out.println(s);
        }
+	   boolean a1=true;
+		boolean a2=true;
+		boolean a3=false;
+		if( a1 & a2 |a3 & a1){
+			System.out.println("true");
+		}
 		//accept(al);// it
 		accept(al);// it
 	}

@@ -22,7 +22,7 @@ public class useOfThrow {
 			if(b==0)
 			{
 				System.out.println("befor throw");
-			   throw new ArithmeticException();
+			  // throw new ArithmeticException();
 			}
 			
 			}

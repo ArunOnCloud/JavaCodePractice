@@ -1,5 +1,6 @@
 package javaEight;
 
+import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.*;
@@ -25,6 +26,11 @@ public class JavaGroupBy {
 		System.out.println(peopleByAge1);
 
 		System.out.println(list.stream().map((a)->a.age).collect(Collectors.toList()));
+
+//		Thread thread=new Thread( new Callable<Integer>(int val){
+//			return val+1;
+//		});
+
 
 	}
 	static class Person {
